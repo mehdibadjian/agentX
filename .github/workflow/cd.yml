@@ -1,0 +1,24 @@
+# .github/workflows/cd.yml
+
+name: CD
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    
+    # Placeholder for future deployment steps
+    - name: Future deployment steps
+      run: |
+        echo "Deployment configuration will be added here"
