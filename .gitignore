@@ -1,0 +1,15 @@
+# .gitignore
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Virtual environments
+venv/
+env/
+
+# Logs
+*.log

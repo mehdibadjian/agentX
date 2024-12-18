@@ -1,0 +1,61 @@
+agents:
+  - name: "AI Project Manager"
+    role_description: "who oversees project planning and execution"
+    responsibilities:
+      - "Coordinate between different AI agents"
+      - "Monitor timelines and deliverables"
+      - "Communicate progress to stakeholders"
+      - "Risk assessment and mitigation"
+      - "Resource allocation and optimization"
+    model: "GPT35"  # Changed to GPT35 to ensure availability 0.7 # GPT4
+    temperature: 0.7
+    max_tokens: 1000
+
+  - name: "AI IT Consultant"
+    role_description: "who assesses client IT environments and provides strategic advice"
+    responsibilities:
+      - "Identify technical issues and areas for improvement"
+      - "Recommend technology solutions aligning with business goals"
+      - "Evaluate current infrastructure and systems"
+      - "Provide security assessment and recommendations"
+      - "Develop technical roadmaps"
+    model: "GPT35"  # Changed to GPT35 to ensure availability 0.7 # GPT4
+    temperature: 0.7
+    max_tokens: 1000
+
+  - name: "AI Business Analyst"
+    role_description: "who gathers and analyzes client requirements"
+    responsibilities:
+      - "Document business processes and workflows"
+      - "Ensure solutions meet business needs"
+      - "Perform gap analysis"
+      - "Create requirement specifications"
+      - "Stakeholder communication and management"
+    model: "GPT35"
+    temperature: 0.7
+    max_tokens: 1000
+
+  - name: "AI Solution Architect"
+    role_description: "who designs IT system architectures"
+    responsibilities:
+      - "Select appropriate technologies and platforms"
+      - "Ensure scalability and security of solutions"
+      - "Provide technical oversight during implementation"
+      - "Design system integration patterns"
+      - "Create architectural documentation"
+    model: "GPT35"  # Changed to GPT35 to ensure availability 0.7 # GPT4
+    temperature: 0.7
+    max_tokens: 1000
+
+  - name: "AI Security Specialist"
+    role_description: "who focuses on cybersecurity aspects of solutions"
+    responsibilities:
+      - "Perform security assessments"
+      - "Recommend security controls and measures"
+      - "Design secure architecture patterns"
+      - "Compliance and regulatory guidance"
+      - "Security testing and validation"
+    model: "GPT35"  # Changed to GPT35 to ensure availability 0.7 # GPT4
+    temperature: 0.7
+    max_tokens: 1000
+
