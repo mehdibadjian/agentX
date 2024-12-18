@@ -26,7 +26,7 @@ def main():
     logging.info("Starting AI Consultancy Agents")
 
     # Initialize AI provider
-    ai_provider = OpenAIProvider()  # Or GeminiProvider()
+    ai_provider = OpenAIProvider()
 
     # Initialize agents
     agents = [
@@ -36,10 +36,14 @@ def main():
         ProjectManagerAgent(ai_provider=ai_provider),
         DevOpsLeadAgent(ai_provider=ai_provider),
         TechLeadAgent(ai_provider=ai_provider),
+        MarkdownOutputAgent(ai_provider=ai_provider),
     ]
 
-    # Communication facilitator agent (could be the CommunicationManager)
-    communication_manager = CommunicationManager(agents=agents)
+    # Initialize communication manager with AI provider
+    communication_manager = CommunicationManager(
+        agents=agents,
+        ai_provider=ai_provider  # Add this line to pass the ai_provider
+    )
 
     # Client input
     client_input = (
@@ -47,45 +51,44 @@ def main():
     )
     logging.info(f"Client input: {client_input}")
 
-    # Agents process and communicate
-    # Business Analyst
-    ba_agent = next(agent for agent in agents if agent.name == "AI Business Analyst")
+    # Business Analyst processes initial input
+    ba_agent = next(agent for agent in agents if isinstance(agent, BusinessAnalystAgent))
     ba_response = ba_agent.get_response(client_input)
     communication_manager.broadcast_message(ba_agent, ba_response)
 
-    # IT Consultant
-    it_agent = next(agent for agent in agents if agent.name == "AI IT Consultant")
+    # IT Consultant processes the information
+    it_agent = next(agent for agent in agents if isinstance(agent, ITConsultantAgent))
     it_response = it_agent.get_response()
     communication_manager.broadcast_message(it_agent, it_response)
 
-    # Solution Architect
-    sa_agent = next(agent for agent in agents if agent.name == "AI Solution Architect")
+    # Solution Architect provides design input
+    sa_agent = next(agent for agent in agents if isinstance(agent, SolutionArchitectAgent))
     sa_response = sa_agent.get_response()
     communication_manager.broadcast_message(sa_agent, sa_response)
 
-    # Tech Lead
-    tech_lead_agent = next(agent for agent in agents if agent.name == "AI Tech Lead")
+    # Tech Lead provides technical direction
+    tech_lead_agent = next(agent for agent in agents if isinstance(agent, TechLeadAgent))
     tech_lead_response = tech_lead_agent.get_response()
     communication_manager.broadcast_message(tech_lead_agent, tech_lead_response)
 
-    # DevOps Lead
-    devops_lead_agent = next(agent for agent in agents if agent.name == "AI DevOps Lead")
+    # DevOps Lead provides infrastructure and deployment strategy
+    devops_lead_agent = next(agent for agent in agents if isinstance(agent, DevOpsLeadAgent))
     devops_response = devops_lead_agent.get_response()
     communication_manager.broadcast_message(devops_lead_agent, devops_response)
 
-    # Project Manager
-    pm_agent = next(agent for agent in agents if agent.name == "AI Project Manager")
+    # Project Manager provides project planning and coordination
+    pm_agent = next(agent for agent in agents if isinstance(agent, ProjectManagerAgent))
     pm_response = pm_agent.get_response()
     communication_manager.broadcast_message(pm_agent, pm_response)
 
     # Compile responses
     aggregated_content = communication_manager.review_and_collate_responses()
 
-    # Markdown Output Agent
-    md_output_agent = MarkdownOutputAgent(ai_provider=ai_provider)
+    # Format final output using Markdown Output Agent
+    md_output_agent = next(agent for agent in agents if isinstance(agent, MarkdownOutputAgent))
     final_output = md_output_agent.get_response(aggregated_content)
 
-    # Output the final Markdown document
+    # Save the final report
     with open("final_report.md", "w") as f:
         f.write(final_output)
 
