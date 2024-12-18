@@ -1,7 +1,7 @@
 import openai
 import os
 from typing import List, Dict
-from ai_model_provider import AIModelProvider
+from agentx.ai_model_provider import AIModelProvider
 from dotenv import load_dotenv
 import logging
 

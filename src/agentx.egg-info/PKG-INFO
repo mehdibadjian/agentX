@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: agentx
+Version: 0.1.0
+Summary: AI-driven IT consultancy system
+Author: Your Name
+Author-email: your.email@example.com
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: openai>=1.0.0
+Requires-Dist: python-dotenv>=0.19.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: flake8>=4.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.10.0; extra == "dev"
+Requires-Dist: mypy>=0.950; extra == "dev"

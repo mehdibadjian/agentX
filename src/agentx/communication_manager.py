@@ -1,7 +1,7 @@
 # communication_manager.py
 
 from typing import List, Dict, Set
-from ai_agent import AIAgent
+from agentx.ai_agent import AIAgent
 import logging
 from enum import Enum
 import re
