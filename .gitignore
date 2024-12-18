@@ -16,3 +16,7 @@ env/
 
 #report
 final_report.md
+
+# .DS_Store
+.DS_Store
+**/.DS_Store
