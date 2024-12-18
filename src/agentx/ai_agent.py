@@ -1,7 +1,7 @@
 # ai_agent.py
 
 from typing import List, Dict
-from ai_model_provider import AIModelProvider
+from agentx.ai_model_provider import AIModelProvider
 import logging
 
 

@@ -1,7 +1,7 @@
 # agents/it_consultant_agent.py
 
-from ai_agent import AIAgent
-from ai_model_provider import AIModelProvider
+from agentx.ai_agent import AIAgent
+from agentx.ai_model_provider import AIModelProvider
 
 
 class ITConsultantAgent(AIAgent):
